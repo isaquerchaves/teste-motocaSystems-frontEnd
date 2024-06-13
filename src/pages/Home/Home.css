@@ -1,0 +1,119 @@
+.search-container {
+  padding: 1rem 1rem 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.search-title {
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #2b243d;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.search-input {
+  height: 35px;
+  width: 100%;
+  border: 1px solid white;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+input {
+  width: 100%;
+  border: none;
+  outline: none;
+}
+
+.new-register {
+  height: 35px;
+  width: 100%;
+  background-color: #3caffb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  color: white;
+}
+
+.icon {
+  background-color: #3caffb;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+}
+
+span {
+  background-color: #3caffb;
+  font-size: 12px;
+  color: white;
+}
+
+.divider-container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.divider {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #cbcace;
+  margin: 1rem 0;
+}
+
+.moto-list {
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .search-container {
+    flex-direction: row;
+  }
+
+  .search-title {
+    font-size: 25px;
+  }
+
+  .search {
+    width: auto;
+  }
+
+  .search-input {
+    width: 385px;
+    gap: 1rem;
+  }
+
+  .new-register {
+    width: 142px;
+  }
+}
