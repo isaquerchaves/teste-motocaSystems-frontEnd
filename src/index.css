@@ -5,15 +5,23 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: white;
   background-color: #2b243d;
+}
+
+body {
   font-family: 'Poppins', sans-serif;
 }
 
-button{
+button {
   border: none;
-  margin: 0rem;
+  margin: 0;
   cursor: pointer;
+  padding: 0px;
 }
 
 input {
   border: none;
+}
+
+a {
+  text-decoration: none;
 }
