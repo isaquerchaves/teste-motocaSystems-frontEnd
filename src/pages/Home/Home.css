@@ -58,7 +58,7 @@ input {
   height: 16px;
 }
 
-span {
+.new-record {
   background-color: #3caffb;
   font-size: 12px;
   color: white;
