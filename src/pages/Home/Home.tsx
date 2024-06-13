@@ -4,14 +4,14 @@ import Header from "../../components/Header/Header";
 import MotorcycleItem from "../../components/Motorcycle-Item/Motorcycle-Itens";
 import { Motorcycle, initialMotorcycle } from "../../services/services";
 import "./Home.css";
-import { loadMotosFromLocalStorage, deleteMotoFromLocalStorage } from "../../helpers/localStorage";
+import { loadMotorcycle, deleteMotorcycle } from "../../helpers/localStorage";
 
 const Home = () => {
   const [moto, setMoto] = useState<Motorcycle[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const storedMotos = loadMotosFromLocalStorage();
+    const storedMotos = loadMotorcycle();
     if (storedMotos) {
       setMoto(storedMotos);
       setLoading(false);
@@ -24,7 +24,7 @@ const Home = () => {
   }, []);
 
   const handleDeleteMoto = (id: number) => {
-    deleteMotoFromLocalStorage(id);
+    deleteMotorcycle(id);
     setMoto(prevMotos => prevMotos.filter(m => m.id !== id));
   };
 

@@ -1,12 +1,12 @@
 import { Motorcycle } from "../services/services";
 
-export const loadMotosFromLocalStorage = (): Motorcycle[] | null => {
+export const loadMotorcycle = (): Motorcycle[] | null => {
   const storedMotos = localStorage.getItem('motos');
   return storedMotos ? JSON.parse(storedMotos) : null;
 };
 
-export const deleteMotoFromLocalStorage = (id: number): void => {
-  const storedMotos = loadMotosFromLocalStorage();
+export const deleteMotorcycle = (id: number): void => {
+  const storedMotos = loadMotorcycle();
   if (storedMotos) {
     const updatedMotos = storedMotos.filter(m => m.id !== id);
     localStorage.setItem('motos', JSON.stringify(updatedMotos));
