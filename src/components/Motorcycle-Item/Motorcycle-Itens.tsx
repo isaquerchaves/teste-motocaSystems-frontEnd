@@ -43,8 +43,8 @@ const MotorcycleItem = ({ moto, onDelete }: MotorcycleItemProps) => {
             <p className="moto-model">{moto.model}</p>
             <p className={`${getColorClass(moto.status)}`}>{moto.status}</p>
           </div>
-          <p>Valor: {formatCurrency(Number(moto.value))}</p>
-          <p>Cor: {moto.color.toUpperCase()}</p>
+          <p style={{ backgroundColor: "#312D4B"}}>Valor: {formatCurrency(Number(moto.value))}</p>
+          <p style={{ backgroundColor: "#312D4B"}}>Cor: {moto.color.toUpperCase()}</p>
         </div>
       </div>
 
