@@ -1,0 +1,94 @@
+.container {
+  padding: 1rem;
+  background-color: #312D4B;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+}
+
+.moto {
+  background-color: #312D4B;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.moto-code {
+  background-color: #312D4B;
+  color: #8C57FF;
+  max-width: 40px;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+}
+
+.moto-info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: #312D4B;
+}
+
+.moto-info {
+  background-color: #312D4B;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.moto-model {
+  background-color: #312D4B;
+  font-weight: 600;
+}
+
+.moto-status-gren {
+  background-color: #354546;
+  border-radius: 35px;
+  padding: 0.2rem 0.7rem;
+  color: #56CA00;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.moto-status-red {
+  background-color: #55304C;
+  border-radius: 35px;
+  padding: 0.2rem 0.7rem;
+  color: #FF4C51;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.moto-status-brown {
+  background-color: #544146;
+  border-radius: 35px;
+  padding: 0.2rem 0.7rem;
+  color: #FFB400;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+p {
+  background-color: #312D4B;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  background-color: #312D4B;
+}
+
+button {
+  background-color: #312D4B;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 1rem 5rem;
+  }
+  .moto {
+    gap: 5rem;
+  }
+}
