@@ -1,30 +1,31 @@
+import React, { useState, useEffect } from 'react';
 import { Loader, Plus, Search } from "lucide-react";
 import Header from "../../components/Header/Header";
+import MotorcycleItem from "../../components/Motorcycle-Item/Motorcycle-Itens";
 import { Motorcycle, initialMotorcycle } from "../../services/services";
 import "./Home.css";
-import MotorcycleItem from "../../components/Motorcycle-Item/Motorcycle-Itens";
-import { useState, useEffect } from "react";
+import { loadMotosFromLocalStorage, deleteMotoFromLocalStorage } from "../../helpers/localStorage";
 
 const Home = () => {
   const [moto, setMoto] = useState<Motorcycle[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Carregando
-    const timer = setTimeout(() => {
+    const storedMotos = loadMotosFromLocalStorage();
+    if (storedMotos) {
+      setMoto(storedMotos);
+      setLoading(false);
+    } else {
+      // Definindo no local storage os dados do service, apenas na primeira execução
+      localStorage.setItem('motos', JSON.stringify(initialMotorcycle));
       setMoto(initialMotorcycle);
       setLoading(false);
-    }, 1000); // 2 segundos
-    return () => clearTimeout(timer);
+    }
   }, []);
 
   const handleDeleteMoto = (id: number) => {
-    const index = moto.findIndex((m) => m.id === id);
-    if (index !== -1) {
-      const newMoto = [...moto];
-      newMoto.splice(index, 1);
-      setMoto(newMoto);
-    }
+    deleteMotoFromLocalStorage(id);
+    setMoto(prevMotos => prevMotos.filter(m => m.id !== id));
   };
 
   return (
@@ -39,10 +40,10 @@ const Home = () => {
             </button>
             <input type="text" placeholder="Buscar por código, nome e cor" />
           </div>
-          <div className="new-register">
+          <a href="/criar" className="new-register">
             <Plus className="icon" size={20} />
-            <span>NOVO REGISTRO</span>
-          </div>
+            <p className="new-record">NOVO REGISTRO</p>
+          </a>
         </div>
       </div>
 
