@@ -3,6 +3,7 @@ import { Motorcycle } from "../../services/services";
 import "./Motorcycle-Itens.css";
 import { formatCurrency } from "../../helpers/price";
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 interface MotorcycleItemProps {
   moto: Motorcycle;
@@ -11,6 +12,7 @@ interface MotorcycleItemProps {
 
 const MotorcycleItem = ({ moto, onDelete }: MotorcycleItemProps) => {
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleDelete = (id: number) => {
     setLoading(true);
@@ -19,6 +21,10 @@ const MotorcycleItem = ({ moto, onDelete }: MotorcycleItemProps) => {
       onDelete(id);
       setLoading(false);
     }, 1000);
+  };
+
+  const handleEdit = () => {
+    navigate(`/edit/${moto.id}`);
   };
 
   function getColorClass(status: string) {
@@ -67,7 +73,9 @@ const MotorcycleItem = ({ moto, onDelete }: MotorcycleItemProps) => {
             />
           )}
         </button>
-        <Eye style={{ backgroundColor: "#312D4B" }} size={20} />
+        <button onClick={handleEdit}>
+          <Eye style={{ backgroundColor: "#312D4B" }} size={20} />
+        </button>
       </div>
     </div>
   );
