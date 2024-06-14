@@ -1,10 +1,11 @@
-import { Loader, Plus, Search } from "lucide-react";
+import { Loader, Search } from "lucide-react";
 import Header from "../../components/Header/Header";
 import { Motorcycle, initialMotorcycle } from "../../services/services";
 import "./Home.css";
 import MotorcycleItem from "../../components/Motorcycle-Itens/Motorcycle-Itens";
 import { useState, useEffect } from "react";
 import { loadMotorcycle, deleteMotorcycle } from "../../helpers/localStorage";
+import Button from "../../components/Button/Button";
 
 const Home = () => {
   const [motos, setMotos] = useState<Motorcycle[]>([]);
@@ -55,10 +56,7 @@ const Home = () => {
               onChange={handleSearchChange}
             />
           </div>
-          <a href="/criar" className="new-register">
-            <Plus className="icon" size={20} />
-            <p className="new-record">NOVO REGISTRO</p>
-          </a>
+          <Button type="link" text="NOVO REGISTRO" icon="plus" />
         </div>
       </div>
 
@@ -72,9 +70,16 @@ const Home = () => {
         </div>
       ) : (
         <div className="moto-list">
-          {filteredMotos.map((moto) => (
-            <MotorcycleItem moto={moto} onDelete={handleDeleteMoto} />
-          ))}
+          {filteredMotos && filteredMotos.length > 0 ? (
+            filteredMotos.map((moto) => (
+              <MotorcycleItem
+                moto={moto}
+                onDelete={handleDeleteMoto}
+              />
+            ))
+          ) : (
+            <p>Nenhuma moto encontrada</p>
+          )}
         </div>
       )}
     </section>
