@@ -71,6 +71,46 @@
   height: 100%;
 }
 
+.label-edit {
+  position: relative;
+  border: 1px solid #E7E3FC80;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 500;
+  width: 420px;
+  height: 45px;
+}
+
+.label-edit span {
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  background-color: #2b243d;
+  padding: 0 0.3rem;
+  color: #E7E3FC80;
+}
+
+.input-code-edit {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  color: #E7E3FC80;
+}
+
+.input-code-edit p {
+  color: #E7E3FC80;
+}
+
+.input-code-edit input {
+  color: #E7E3FC80;
+  font-weight: 500;
+}
+
 p{
   background-color: #2b243d;
 }
@@ -79,4 +119,5 @@ input {
   display: flex;
   align-items: center;
   height: 100%;
+  font-weight: 400;
 }

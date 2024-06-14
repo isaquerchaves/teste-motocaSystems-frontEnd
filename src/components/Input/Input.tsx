@@ -5,11 +5,20 @@ interface InputProps {
   type: string;
   name: string;
   value: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
+  onChange: (
+    event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => void;
+  disabled?: boolean;
 }
 
-const Input = ({ label, type, name, value, onChange }: InputProps) => {
-
+const Input = ({
+  label,
+  type,
+  name,
+  value,
+  onChange,
+  disabled,
+}: InputProps) => {
   if (label === "Status")
     return (
       <label>
@@ -18,8 +27,9 @@ const Input = ({ label, type, name, value, onChange }: InputProps) => {
           <select
             name="status"
             value={value}
-            onChange={onChange} 
+            onChange={onChange}
             required
+            disabled={disabled}
           >
             <option value="" disabled>
               Selecione um status
@@ -32,22 +42,43 @@ const Input = ({ label, type, name, value, onChange }: InputProps) => {
       </label>
     );
 
-  return (
+  if (label === "Código-edit")
+    return (
       <label>
-        <div className="label">
-          <span>{label}</span>
-          <div className="input-code">
-            {label === "Código" ? <p># </p> : <p></p>}
+        <div className="label-edit">
+          <span>Código</span>
+          <div className="input-code-edit">
+            <p># </p>
             <input
               type={type}
               name={name}
               value={value}
               onChange={onChange}
               required
+              disabled={disabled}
             />
           </div>
         </div>
       </label>
+    );
+
+  return (
+    <label>
+      <div className="label">
+        <span>{label}</span>
+        <div className="input-code">
+          {label === "Código" ? <p># </p> : <p></p>}
+          <input
+            type={type}
+            name={name}
+            value={value}
+            onChange={onChange}
+            required
+            disabled={disabled}
+          />
+        </div>
+      </div>
+    </label>
   );
 };
 
