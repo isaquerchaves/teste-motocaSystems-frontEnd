@@ -29,3 +29,11 @@ export const isCodeAlreadyExists = (code: string): boolean => {
   }
   return false;
 };
+
+export const updateMotorcycle = (updatedMoto: Motorcycle): void => {
+  const storedMotos = loadMotorcycle();
+  if (storedMotos) {
+    const updatedMotos = storedMotos.map(m => m.id === updatedMoto.id ? updatedMoto : m);
+    localStorage.setItem('motos', JSON.stringify(updatedMotos));
+  }
+};
