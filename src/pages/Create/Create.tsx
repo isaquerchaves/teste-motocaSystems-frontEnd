@@ -39,6 +39,8 @@ const Create: React.FC = () => {
 
     saveMotorcycle(newMotorcycle);
 
+    alert("Registro criado com sucesso!");
+
     setNewMotorcycle({
       id: 0,
       code: "",
