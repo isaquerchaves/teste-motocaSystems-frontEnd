@@ -12,6 +12,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
 
+  // Carregar as motos do localStorage na inicialização
   useEffect(() => {
     const storedMotos = loadMotorcycle();
     if (storedMotos) {
@@ -23,16 +24,19 @@ const Home = () => {
     setLoading(false);
   }, []);
 
+  // Exclusão de uma moto
   const handleDeleteMoto = (id: number) => {
     deleteMotorcycle(id);
     setMotos((prevMotos) => prevMotos.filter((m) => m.id !== id));
     alert("Registro deletado com sucesso!");
   };
 
+  // Buscar uma moto
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
   };
 
+  // Filtrar moto com base no termo de busca
   const filteredMotos = motos.filter((moto) =>
     `${moto.code} ${moto.model} ${moto.color}`
       .toLowerCase()

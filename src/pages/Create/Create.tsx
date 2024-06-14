@@ -19,6 +19,7 @@ const Create: React.FC = () => {
     status: "",
   });
 
+  // Lidando com as mudanças nos campos do formulário
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
@@ -29,6 +30,7 @@ const Create: React.FC = () => {
     });
   };
 
+  // Enviar do formulário de registro
   const handleRegisterMoto = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 

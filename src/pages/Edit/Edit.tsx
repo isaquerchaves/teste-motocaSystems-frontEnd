@@ -12,6 +12,7 @@ const Edit: React.FC = () => {
   const navigate = useNavigate();
   const [motorcycle, setMotorcycle] = useState<Motorcycle | null>(null);
 
+  // Carregar a moto ser editada
   useEffect(() => {
     const motos = loadMotorcycle();
     const moto = motos?.find((m) => m.id === Number(id));
@@ -20,6 +21,7 @@ const Edit: React.FC = () => {
     }
   }, [id]);
 
+  // Lidando com as mudanças nos campos do formulário
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
@@ -32,6 +34,7 @@ const Edit: React.FC = () => {
     }
   };
 
+  // Lidando com o envio do formulário de atualização
   const handleUpdateMoto = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (motorcycle) {
@@ -40,6 +43,7 @@ const Edit: React.FC = () => {
     }
   };
 
+  // Renderizando um carregamento enquanto a moto não é carregada
   if (!motorcycle) {
     return <div>Loading...</div>;
   }

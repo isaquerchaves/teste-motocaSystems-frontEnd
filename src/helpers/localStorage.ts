@@ -1,10 +1,12 @@
 import { Motorcycle } from "../services/services";
 
+// Ler
 export const loadMotorcycle = (): Motorcycle[] | null => {
   const storedMotos = localStorage.getItem('motos');
   return storedMotos ? JSON.parse(storedMotos) : null;
 };
 
+// Deletar
 export const deleteMotorcycle = (id: number): void => {
   const storedMotos = loadMotorcycle();
   if (storedMotos) {
@@ -13,6 +15,7 @@ export const deleteMotorcycle = (id: number): void => {
   }
 };
 
+// Criar
 export const saveMotorcycle = (newMotorcycle: Motorcycle): void => {
   const storedMotos = localStorage.getItem("motos");
   const motos: Motorcycle[] = storedMotos ? JSON.parse(storedMotos) : [];
@@ -21,6 +24,7 @@ export const saveMotorcycle = (newMotorcycle: Motorcycle): void => {
   localStorage.setItem("motos", JSON.stringify([...motos, motoToAdd]));
 };
 
+// Verificar se o código da moto já existe
 export const isCodeAlreadyExists = (code: string): boolean => {
   const storedMotos = localStorage.getItem("motos");
   if (storedMotos) {
@@ -30,6 +34,7 @@ export const isCodeAlreadyExists = (code: string): boolean => {
   return false;
 };
 
+// Atualizar
 export const updateMotorcycle = (updatedMoto: Motorcycle): void => {
   const storedMotos = loadMotorcycle();
   if (storedMotos) {
