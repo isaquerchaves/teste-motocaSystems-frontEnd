@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Plus } from "lucide-react";
 import Header from "../../components/Header/Header";
 import "./Create.css";
 import { Motorcycle } from "../../services/services";
@@ -8,6 +7,7 @@ import {
   isCodeAlreadyExists,
 } from "../../helpers/localStorage";
 import Input from "../../components/Input/Input";
+import Button from "../../components/Button/Button";
 
 const Create: React.FC = () => {
   const [newMotorcycle, setNewMotorcycle] = useState<Motorcycle>({
@@ -99,10 +99,7 @@ const Create: React.FC = () => {
           value={newMotorcycle.status}
           onChange={handleInputChange}
         />
-        <button className="register" type="submit">
-          <Plus className="icon" size={20} />
-          <p className="new-record">REGISTRAR</p>
-        </button>
+        <Button type="submit" text="REGISTRAR" icon="plus" />
       </form>
     </section>
   );

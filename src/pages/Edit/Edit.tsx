@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import "./Edit.css";
 import { Motorcycle } from "../../services/services";
 import { loadMotorcycle, updateMotorcycle } from "../../helpers/localStorage";
 import Input from "../../components/Input/Input";
-import { CircleArrowUp } from "lucide-react";
+import Button from "../../components/Button/Button";
 
 const Edit: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -14,7 +14,7 @@ const Edit: React.FC = () => {
 
   useEffect(() => {
     const motos = loadMotorcycle();
-    const moto = motos?.find(m => m.id === Number(id));
+    const moto = motos?.find((m) => m.id === Number(id));
     if (moto) {
       setMotorcycle(moto);
     }
@@ -36,7 +36,7 @@ const Edit: React.FC = () => {
     event.preventDefault();
     if (motorcycle) {
       updateMotorcycle(motorcycle);
-      navigate('/');
+      navigate("/");
     }
   };
 
@@ -53,9 +53,7 @@ const Edit: React.FC = () => {
       <div className="divider-container">
         <span className="divider"></span>
       </div>
-      <h4 className="title">
-      Edite as informações que preferir! 📝
-      </h4>
+      <h4 className="title">Edite as informações que preferir! 📝</h4>
       <form onSubmit={handleUpdateMoto}>
         <Input
           label="Código-edit"
@@ -93,10 +91,7 @@ const Edit: React.FC = () => {
           value={motorcycle.status}
           onChange={handleInputChange}
         />
-        <button className="register" type="submit">
-          <CircleArrowUp className="icon" size={20} />
-          <p className="new-record">ATUALIZAR</p>
-        </button>
+        <Button type="submit" text="ATUALIZAR" icon="" />
       </form>
     </section>
   );
