@@ -1,30 +1,33 @@
-# React + TypeScript + Vite
+# Desafio Front-end Honda Motoca
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é um pequeno projeto desenvolvido para testar habilidades para a posição de Front-End.
 
-Currently, two official plugins are available:
+## 📚 Requisitos
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Utilize React ou Vue para construir a aplicação.
+- Utilize HTML e CSS para estilizar a aplicação. Ou uma lib de estilização onde você sinta-se confortável.
+- Implemente as operações de CRUD (Criar, Ler, Atualizar, Deletar).
+- Você poderá utilizar o JSON server para simular a API ou qualquer outro mock de API de sua preferência.
 
-## Expanding the ESLint configuration
+## 🛠️ Tecnologias usadas:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- React
+- React-router-dom
+- Lucide React (Lib de ícones)
+- LocalStorage
 
-- Configure the top-level `parserOptions` property like this:
+## 🚀 Funcionalidades:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- Carregar todas as motos;
+- Fazer buscas de motos por código, nome ou cor;
+- Criar nova moto;
+- Deletar moto;
+- Atualizar moto;
+- Responsivo;
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## ℹ️ Um pouco sobre o projeto:
+
+- Usei o `localStorage` para armazenar os dados.
+- No diretório `src/services/services.tsx` temos os dados iniciais.
+- No diretório `src/helpers/localStorage.ts` temos todas as funções de CRUD.
+- No diretório `src/helpers/price.ts` temos a função para converter o valor para estilo monetário BR (R$)
