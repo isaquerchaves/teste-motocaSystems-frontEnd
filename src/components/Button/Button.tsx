@@ -1,4 +1,5 @@
 import { CircleArrowUp, Plus } from "lucide-react";
+import './Button.css'
 
 interface ButtonProps {
   type: string;
